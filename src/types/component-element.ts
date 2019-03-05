@@ -1,3 +1,3 @@
-type ComponentElement = string
+type ComponentElement = string | HTMLElement
 
 export default ComponentElement

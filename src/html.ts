@@ -1,7 +1,11 @@
 import ComponentElement from './types/component-element'
 
 const getElementHtml = (element: ComponentElement) => {
-  return element
+  if (typeof element === 'string') {
+    return element
+  }
+
+  return element.outerHTML
 }
 
 const getPageHtml = (element: ComponentElement) => {
