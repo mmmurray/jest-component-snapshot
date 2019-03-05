@@ -31,11 +31,9 @@ Object {
           "role": "link",
         },
       ],
-      "name": "",
       "role": "region",
     },
   ],
-  "name": "",
   "role": "WebArea",
 }
 `)
@@ -64,11 +62,9 @@ Object {
           "role": "heading",
         },
       ],
-      "name": "",
       "role": "banner",
     },
   ],
-  "name": "",
   "role": "WebArea",
 }
 `)
@@ -109,11 +105,52 @@ Object {
           "role": "link",
         },
       ],
-      "name": "",
       "role": "region",
     },
   ],
-  "name": "",
+  "role": "WebArea",
+}
+`)
+})
+
+test('should remove generic containers from a11y snapshot', async () => {
+  const element = (
+    <div>
+      <div />
+      <div>
+        <h1>Hello</h1>
+      </div>
+      <div>
+        <a href="/world">World</a>
+      </div>
+    </div>
+  )
+
+  expect(await a11ySnapshot(element)).toMatchInlineSnapshot(`
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "name": "Hello",
+          "role": "text",
+        },
+      ],
+      "level": 1,
+      "name": "Hello",
+      "role": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "name": "World",
+          "role": "text",
+        },
+      ],
+      "name": "World",
+      "role": "link",
+    },
+  ],
   "role": "WebArea",
 }
 `)

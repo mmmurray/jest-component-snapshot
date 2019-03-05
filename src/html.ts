@@ -25,6 +25,8 @@ const getElementHtml = (element: ComponentElement): string => {
   if (React && ReactDOMServer && React.isValidElement(element)) {
     return ReactDOMServer.renderToStaticMarkup(element)
   }
+
+  return ''
 }
 
 const getPageHtml = (element: ComponentElement) => {
