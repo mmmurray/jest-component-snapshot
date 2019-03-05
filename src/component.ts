@@ -1,6 +1,5 @@
-import crypto from 'crypto'
-import { unlink, writeFile } from 'fs-extra'
-import { join } from 'path'
+import { writeFile } from 'fs-extra'
+import tmp from 'tmp-promise'
 import { loadPage } from './puppeteer'
 import ComponentElement from './types/component-element'
 
@@ -15,15 +14,12 @@ const getHtml = (element: ComponentElement) => {
 
 const loadComponentIntoPage = async (element: ComponentElement) => {
   const { page, teardown: teardownPage } = await loadPage()
+  const { path, cleanup } = await tmp.file({ postfix: '.html' })
+  await writeFile(path, getHtml(element))
 
-  const html = getHtml(element)
-  const id = crypto.randomBytes(20).toString('hex')
-  const filePath = join(__dirname, `test-${id}.html`)
-  await writeFile(filePath, html)
+  await page.goto(`file://${path}`)
 
-  await page.goto(`file://${filePath}`)
-
-  const teardown = async () => Promise.all([unlink(filePath), teardownPage()])
+  const teardown = async () => Promise.all([cleanup(), teardownPage()])
 
   return { page, teardown }
 }
