@@ -1,0 +1,32 @@
+{
+  "name": "jest-component-snapshot",
+  "version": "0.1.0",
+  "description": "Component snapshot matchers",
+  "author": "Mark Murray",
+  "license": "MIT",
+  "repository": "git@github.com:mmmurray/jest-component-snapshot.git",
+  "keywords": [
+    "jest",
+    "component",
+    "snapshot",
+    "react",
+    "dom",
+    "a11y",
+    "puppeteer"
+  ],
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "build": "rm -rf lib && mmm build",
+    "format": "mmm format",
+    "jest": "mmm jest",
+    "prepare": "yarn build",
+    "test": "mmm coverage"
+  },
+  "peerDependencies": {
+    "puppeteer": "*"
+  },
+  "devDependencies": {
+    "mmm-scripts": "^0.0.16"
+  }
+}
