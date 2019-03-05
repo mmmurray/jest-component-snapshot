@@ -1,11 +1,30 @@
 import ComponentElement from './types/component-element'
 
-const getElementHtml = (element: ComponentElement) => {
+const getReact = () => {
+  try {
+    return {
+      React: require('react'),
+      ReactDOMServer: require('react-dom/server'),
+    }
+  } catch {
+    return {}
+  }
+}
+
+const getElementHtml = (element: ComponentElement): string => {
   if (typeof element === 'string') {
     return element
   }
 
-  return element.outerHTML
+  if (element instanceof HTMLElement) {
+    return element.outerHTML
+  }
+
+  const { React, ReactDOMServer } = getReact()
+
+  if (React && ReactDOMServer && React.isValidElement(element)) {
+    return ReactDOMServer.renderToString(element)
+  }
 }
 
 const getPageHtml = (element: ComponentElement) => {

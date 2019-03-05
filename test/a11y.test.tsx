@@ -1,4 +1,5 @@
 import { a11ySnapshot } from '../src'
+import React from 'react'
 
 test('can create a11y snapshot from HTML string', async () => {
   const element = '<section><h1>Hello</h1><a href="/world">World</a></section>'
@@ -65,6 +66,51 @@ Object {
       ],
       "name": "",
       "role": "banner",
+    },
+  ],
+  "name": "",
+  "role": "WebArea",
+}
+`)
+})
+
+test('can create a11y snapshot from React element', async () => {
+  const element = (
+    <section>
+      <h1>Hello</h1>
+      <a href="/world">World</a>
+    </section>
+  )
+
+  expect(await a11ySnapshot(element)).toMatchInlineSnapshot(`
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "name": "Hello",
+              "role": "text",
+            },
+          ],
+          "level": 1,
+          "name": "Hello",
+          "role": "heading",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "name": "World",
+              "role": "text",
+            },
+          ],
+          "name": "World",
+          "role": "link",
+        },
+      ],
+      "name": "",
+      "role": "region",
     },
   ],
   "name": "",
