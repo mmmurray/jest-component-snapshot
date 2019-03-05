@@ -29,6 +29,7 @@
   "devDependencies": {
     "@types/fs-extra": "^5.0.5",
     "@types/node": "^11.10.4",
+    "@types/pretty": "^2.0.0",
     "@types/puppeteer": "^1.12.1",
     "mmm-scripts": "^0.0.16",
     "prettier": "^1.16.4",
@@ -36,6 +37,7 @@
   },
   "dependencies": {
     "fs-extra": "^7.0.1",
+    "pretty": "^2.0.0",
     "tmp-promise": "^1.0.5"
   }
 }
