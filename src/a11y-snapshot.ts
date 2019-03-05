@@ -1,4 +1,5 @@
 import { AXNode } from 'puppeteer'
+import YAML from 'yamljs'
 import { loadComponentIntoPage } from './component'
 import ComponentElement from './types/component-element'
 
@@ -45,7 +46,7 @@ const a11ySnapshot = async (element: ComponentElement) => {
 
   await teardown()
 
-  return removeEmpty(snapshot)
+  return YAML.stringify(removeEmpty(snapshot), Infinity, 2)
 }
 
 export { a11ySnapshot }

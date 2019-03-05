@@ -5,37 +5,27 @@ test('can create a11y snapshot from HTML string', async () => {
   const element = '<section><h1>Hello</h1><a href="/world">World</a></section>'
 
   expect(await a11ySnapshot(element)).toMatchInlineSnapshot(`
-Object {
-  "children": Array [
-    Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
-              "name": "Hello",
-              "role": "text",
-            },
-          ],
-          "level": 1,
-          "name": "Hello",
-          "role": "heading",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "name": "World",
-              "role": "text",
-            },
-          ],
-          "name": "World",
-          "role": "link",
-        },
-      ],
-      "role": "region",
-    },
-  ],
-  "role": "WebArea",
-}
+"role: WebArea
+children:
+  -
+    role: region
+    children:
+      -
+        role: heading
+        name: Hello
+        level: 1
+        children:
+          -
+            role: text
+            name: Hello
+      -
+        role: link
+        name: World
+        children:
+          -
+            role: text
+            name: World
+"
 `)
 })
 
@@ -46,27 +36,20 @@ test('can create a11y snapshot from DOM element', async () => {
   element.appendChild(heading)
 
   expect(await a11ySnapshot(element)).toMatchInlineSnapshot(`
-Object {
-  "children": Array [
-    Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
-              "name": "hello header",
-              "role": "text",
-            },
-          ],
-          "level": 1,
-          "name": "hello header",
-          "role": "heading",
-        },
-      ],
-      "role": "banner",
-    },
-  ],
-  "role": "WebArea",
-}
+"role: WebArea
+children:
+  -
+    role: banner
+    children:
+      -
+        role: heading
+        name: 'hello header'
+        level: 1
+        children:
+          -
+            role: text
+            name: 'hello header'
+"
 `)
 })
 
@@ -79,37 +62,27 @@ test('can create a11y snapshot from React element', async () => {
   )
 
   expect(await a11ySnapshot(element)).toMatchInlineSnapshot(`
-Object {
-  "children": Array [
-    Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
-              "name": "Hello",
-              "role": "text",
-            },
-          ],
-          "level": 1,
-          "name": "Hello",
-          "role": "heading",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "name": "World",
-              "role": "text",
-            },
-          ],
-          "name": "World",
-          "role": "link",
-        },
-      ],
-      "role": "region",
-    },
-  ],
-  "role": "WebArea",
-}
+"role: WebArea
+children:
+  -
+    role: region
+    children:
+      -
+        role: heading
+        name: Hello
+        level: 1
+        children:
+          -
+            role: text
+            name: Hello
+      -
+        role: link
+        name: World
+        children:
+          -
+            role: text
+            name: World
+"
 `)
 })
 
@@ -127,31 +100,23 @@ test('should remove generic containers from a11y snapshot', async () => {
   )
 
   expect(await a11ySnapshot(element)).toMatchInlineSnapshot(`
-Object {
-  "children": Array [
-    Object {
-      "children": Array [
-        Object {
-          "name": "Hello",
-          "role": "text",
-        },
-      ],
-      "level": 1,
-      "name": "Hello",
-      "role": "heading",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "name": "World",
-          "role": "text",
-        },
-      ],
-      "name": "World",
-      "role": "link",
-    },
-  ],
-  "role": "WebArea",
-}
+"role: WebArea
+children:
+  -
+    role: heading
+    name: Hello
+    level: 1
+    children:
+      -
+        role: text
+        name: Hello
+  -
+    role: link
+    name: World
+    children:
+      -
+        role: text
+        name: World
+"
 `)
 })
