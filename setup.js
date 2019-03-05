@@ -1,6 +1,3 @@
-const puppeteer = require('puppeteer')
+const { globalSetup } = require('./lib/index')
 
-module.exports = async () => {
-  global.browser = await puppeteer.launch()
-  process.env.PUPPETEER_WS_ENDPOINT = global.browser.wsEndpoint()
-}
+module.exports = globalSetup

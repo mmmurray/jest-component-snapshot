@@ -1,4 +1,3 @@
-module.exports = async () => {
-  await global.browser.close()
-  global.browser = null
-}
+const { globalTeardown } = require('./lib/index')
+
+module.exports = globalTeardown
