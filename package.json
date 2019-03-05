@@ -27,6 +27,7 @@
     "puppeteer": "*"
   },
   "devDependencies": {
-    "mmm-scripts": "^0.0.16"
+    "mmm-scripts": "^0.0.16",
+    "puppeteer": "^1.13.0"
   }
 }
