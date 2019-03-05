@@ -1,7 +1,7 @@
-import { a11ySnapshot } from "../src";
+import { a11ySnapshot } from '../src'
 
-test("can create a11y snapshot from HTML string", async () => {
-  const element = '<section><h1>Hello</h1><a href="/world">World</a></section>';
+test('can create a11y snapshot from HTML string', async () => {
+  const element = '<section><h1>Hello</h1><a href="/world">World</a></section>'
 
   expect(await a11ySnapshot(element)).toMatchInlineSnapshot(`
 Object {
@@ -37,12 +37,14 @@ Object {
   "name": "",
   "role": "WebArea",
 }
-`);
-});
+`)
+})
 
-test("can create a11y snapshot from DOM element", async () => {
-  const element = document.createElement("header");
-  element.innerHTML = "hello header";
+test('can create a11y snapshot from DOM element', async () => {
+  const element = document.createElement('header')
+  const heading = document.createElement('h1')
+  heading.innerHTML = 'hello header'
+  element.appendChild(heading)
 
   expect(await a11ySnapshot(element)).toMatchInlineSnapshot(`
 Object {
@@ -50,8 +52,15 @@ Object {
     Object {
       "children": Array [
         Object {
+          "children": Array [
+            Object {
+              "name": "hello header",
+              "role": "text",
+            },
+          ],
+          "level": 1,
           "name": "hello header",
-          "role": "text",
+          "role": "heading",
         },
       ],
       "name": "",
@@ -61,5 +70,5 @@ Object {
   "name": "",
   "role": "WebArea",
 }
-`);
-});
+`)
+})
