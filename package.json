@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "mmm-scripts": "^0.0.16",
+    "prettier": "^1.16.4",
     "puppeteer": "^1.13.0"
   }
 }
