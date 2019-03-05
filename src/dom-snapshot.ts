@@ -5,7 +5,7 @@ import ComponentElement from './types/component-element'
 const domSnapshot = (element: ComponentElement) => {
   const html = getElementHtml(element)
 
-  return pretty(html)
+  return pretty(html, { ocd: true })
 }
 
 export { domSnapshot }
