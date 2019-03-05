@@ -1,3 +1,4 @@
+import React from 'react'
 import { domSnapshot } from '../src'
 
 test('can create DOM snapshot from HTML string', () => {
@@ -21,5 +22,20 @@ test('can create DOM snapshot from DOM element', async () => {
 "<header>
   <h1>hello header</h1>
 </header>"
+`)
+})
+
+test('can create DOM snapshot from React element', async () => {
+  const element = (
+    <section>
+      <h1>Hello</h1>
+      <a href="/world">World</a>
+    </section>
+  )
+
+  expect(await domSnapshot(element)).toMatchInlineSnapshot(`
+"<section>
+  <h1>Hello</h1><a href=\\"/world\\">World</a>
+</section>"
 `)
 })
