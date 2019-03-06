@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 import React from 'react'
 import { extendExpect } from '../src'
-import 'jest-component-snapshot'
 
 extendExpect()
 
