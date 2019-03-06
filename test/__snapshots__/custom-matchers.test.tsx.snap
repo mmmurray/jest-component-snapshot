@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can use toMatchA11ySnapshot with DOM element: toMatchA11ySnapshot 1`] = `
+"role: WebArea
+children:
+  -
+    role: heading
+    name: Hello
+    level: 1
+    children:
+      -
+        role: text
+        name: Hello
+"
+`;
+
+exports[`can use toMatchA11ySnapshot with HTML string: toMatchA11ySnapshot 1`] = `
+"role: WebArea
+children:
+  -
+    role: banner
+    children:
+      -
+        role: heading
+        name: Hello
+        level: 1
+        children:
+          -
+            role: text
+            name: Hello
+      -
+        role: heading
+        name: World
+        level: 2
+        children:
+          -
+            role: text
+            name: World
+"
+`;
+
+exports[`can use toMatchA11ySnapshot with React element: toMatchA11ySnapshot 1`] = `
+"role: WebArea
+children:
+  -
+    role: banner
+    children:
+      -
+        role: heading
+        name: Hello
+        level: 1
+        children:
+          -
+            role: text
+            name: Hello
+      -
+        role: heading
+        name: World
+        level: 2
+        children:
+          -
+            role: text
+            name: World
+"
+`;
+
+exports[`can use toMatchDomSnapshot with DOM element: toMatchDomSnapshot 1`] = `"<h1>Hello</h1>"`;
+
+exports[`can use toMatchDomSnapshot with HTML string: toMatchDomSnapshot 1`] = `
+"<header>
+  <h1>Hello</h1>
+  <h2>World</h2>
+</header>"
+`;
+
+exports[`can use toMatchDomSnapshot with React element: toMatchDomSnapshot 1`] = `
+"<header>
+  <h1>Hello</h1>
+  <h2>World</h2>
+</header>"
+`;
