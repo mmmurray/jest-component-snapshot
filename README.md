@@ -1,4 +1,4 @@
-# Jest Component Snapshot
+# jest-component-snapshot
 
 [![Travis](https://img.shields.io/travis/mmmurray/jest-component-snapshot.svg)](https://travis-ci.org/mmmurray/jest-component-snapshot)
 [![npm](https://img.shields.io/npm/v/jest-component-snapshot.svg)](https://www.npmjs.com/package/jest-component-snapshot)
@@ -26,7 +26,7 @@ Update your Jest config to automatically setup and teardown Puppeteer:
 
 ### Image snapshot tests
 
-Image snapshot tests use [jest-image-snapshot](https://www.npmjs.com/package/jest-image-snapshot) but you provide a component instead of an image. All of the same options should work here.
+Creates an image snapshot from a component using [jest-image-snapshot](https://www.npmjs.com/package/jest-image-snapshot). All of the same options are supported.
 
 ```js
 test('image snapshot from HTML string', () => {
@@ -36,6 +36,7 @@ test('image snapshot from HTML string', () => {
 test('image snapshot from DOM element', () => {
   const headingElement = document.createElement('h1')
   headingElement.innerHtml = 'Hello world'
+
   expect(headingElement).toMatchImageSnapshot()
 })
 
@@ -56,6 +57,7 @@ test('a11y snapshot from HTML string', () => {
 test('a11y snapshot from DOM element', () => {
   const headingElement = document.createElement('h1')
   headingElement.innerHtml = 'Hello world'
+
   expect(headingElement).toMatchA11ySnapshot()
 })
 
@@ -76,6 +78,7 @@ test('DOM snapshot from HTML string', () => {
 test('DOM snapshot from DOM element', () => {
   const headingElement = document.createElement('h1')
   headingElement.innerHtml = 'Hello world'
+
   expect(headingElement).toMatchDomSnapshot()
 })
 
