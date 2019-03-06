@@ -1,4 +1,4 @@
-# jest-component-snapshot
+# jest-component-snapshot 📸
 
 [![Travis](https://img.shields.io/travis/mmmurray/jest-component-snapshot.svg)](https://travis-ci.org/mmmurray/jest-component-snapshot)
 [![npm](https://img.shields.io/npm/v/jest-component-snapshot.svg)](https://www.npmjs.com/package/jest-component-snapshot)
@@ -6,13 +6,13 @@
 
 Component snapshot testing made easy.
 
-## Install
+## Install ⚙️
 
 ```bash
 yarn add -D jest-component-snapshot puppeteer
 ```
 
-## Usage
+## Usage 🤖
 
 Update your Jest config to automatically setup and teardown Puppeteer:
 
@@ -87,7 +87,7 @@ test('DOM snapshot from React element', () => {
 })
 ```
 
-## Alternatives
+## Alternatives 🙌
 
 - [jest-puppeteer](https://github.com/smooth-code/jest-puppeteer)
 - [jest-image-snapshot](https://www.npmjs.com/package/jest-image-snapshot)
