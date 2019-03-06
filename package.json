@@ -9,6 +9,8 @@
     "jest",
     "component",
     "snapshot",
+    "snapshot-testing",
+    "jest-snapshots",
     "react",
     "dom",
     "a11y",
