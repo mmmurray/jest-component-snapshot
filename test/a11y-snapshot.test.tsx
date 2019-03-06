@@ -1,3 +1,4 @@
+import styled from '@emotion/styled'
 import React from 'react'
 import { a11ySnapshot } from '../src'
 
@@ -110,6 +111,37 @@ children:
       -
         role: text
         name: Hello
+  -
+    role: link
+    name: World
+    children:
+      -
+        role: text
+        name: World
+"
+`)
+})
+
+test('a11y snapshot is affected by document styles', async () => {
+  const HiddenDiv = styled.div`
+    display: none;
+  `
+
+  const element = (
+    <div>
+      <div />
+      <HiddenDiv>
+        <h1>Hello</h1>
+      </HiddenDiv>
+      <div>
+        <a href="/world">World</a>
+      </div>
+    </div>
+  )
+
+  expect(await a11ySnapshot(element)).toMatchInlineSnapshot(`
+"role: WebArea
+children:
   -
     role: link
     name: World

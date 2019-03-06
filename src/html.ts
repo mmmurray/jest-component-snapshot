@@ -31,7 +31,10 @@ const getElementHtml = (element: ComponentElement): string => {
 
 const getPageHtml = (element: ComponentElement) => {
   const elementHtml = getElementHtml(element)
-  const styles: string[] = []
+
+  const styles = Array.from(document.querySelectorAll('style')).map(
+    styleElement => styleElement.innerHTML,
+  )
 
   return `<!doctype html><html><head><style>${styles.join(
     '\n',
