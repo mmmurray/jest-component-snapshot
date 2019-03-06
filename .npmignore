@@ -1,2 +1,5 @@
 *
 !lib/**/*
+!setup.js
+!teardown.js
+!extend-expect.js
