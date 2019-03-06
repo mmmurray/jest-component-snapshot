@@ -30,11 +30,11 @@ const extendExpect = () => {
 
   // @ts-ignore
   expect.extend({
-    async toMatchImageSnapshot(received: ComponentElement) {
+    async toMatchImageSnapshot(received: ComponentElement, options: any) {
       return toMatchImageSnapshotBase.call(
         this,
         await imageSnapshot(received),
-        'toMatchImageSnapshot',
+        options,
       )
     },
   })
