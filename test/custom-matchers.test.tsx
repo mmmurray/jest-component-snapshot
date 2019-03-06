@@ -2,6 +2,8 @@ import styled from '@emotion/styled'
 import React from 'react'
 import { extendExpect } from '../src'
 
+const failureThreshold = 0.02
+
 extendExpect()
 
 const stringToDomElement = html => {
@@ -52,13 +54,22 @@ test('can use toMatchDomSnapshot with React element', async () => {
 })
 
 test('can use toMatchImageSnapshot with HTML string', async () => {
-  await expect(htmlStringElement).toMatchImageSnapshot()
+  await expect(htmlStringElement).toMatchImageSnapshot({
+    failureThreshold,
+    failureThresholdType: 'percent',
+  })
 })
 
 test('can use toMatchImageSnapshot with DOM element', async () => {
-  await expect(domElement).toMatchImageSnapshot()
+  await expect(domElement).toMatchImageSnapshot({
+    failureThreshold,
+    failureThresholdType: 'percent',
+  })
 })
 
 test('can use toMatchImageSnapshot with React element', async () => {
-  await expect(reactElement).toMatchImageSnapshot()
+  await expect(reactElement).toMatchImageSnapshot({
+    failureThreshold,
+    failureThresholdType: 'percent',
+  })
 })
