@@ -14,7 +14,7 @@ yarn add -D jest-component-snapshot puppeteer
 
 ## Usage 🤖
 
-The recommended way to use this library is be adding the following to your Jest config:
+The recommended way to use this library is by adding the following to your Jest config:
 
 ```json
 {
@@ -24,7 +24,7 @@ The recommended way to use this library is be adding the following to your Jest 
 }
 ```
 
-This config is optional - the `globalSetup` and `globalTeardown` functions ensure that the same instance of Puppeteer is shared between tests to improve performance. If you not set these options then a new instance of Puppeteer will be launched for each test.
+This config is optional - the `globalSetup` and `globalTeardown` functions ensure that the same instance of Puppeteer is shared between tests to improve performance. If you do not set these options then a new instance of Puppeteer will be launched for each test.
 
 If you cannot configure `setupFilesAfterEnv` (such as in [create-react-app](https://github.com/facebook/create-react-app)), you can manually extend Jest in your test files using:
 
