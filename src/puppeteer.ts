@@ -1,7 +1,8 @@
 import puppeteer from 'puppeteer'
 
 const loadPage = async () => {
-  const browser = await (process.env.PUPPETEER_WS_ENDPOINT
+  const connect = Boolean(process.env.PUPPETEER_WS_ENDPOINT)
+  const browser = await (connect
     ? puppeteer.connect({
         browserWSEndpoint: process.env.PUPPETEER_WS_ENDPOINT,
       })
@@ -11,7 +12,7 @@ const loadPage = async () => {
 
   const teardown = async () => {
     await page.close()
-    await browser.disconnect()
+    await (connect ? browser.disconnect() : browser.close())
   }
 
   return { page, teardown }
