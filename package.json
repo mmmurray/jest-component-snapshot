@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "fs-extra": "^7.0.1",
+    "jest-image-snapshot": "^2.8.1",
     "pretty": "^2.0.0",
     "tmp-promise": "^1.0.5",
     "yamljs": "^0.3.0"
