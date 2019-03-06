@@ -2,7 +2,7 @@
 
 [![Travis](https://img.shields.io/travis/mmmurray/jest-component-snapshot.svg)](https://travis-ci.org/mmmurray/jest-component-snapshot)
 [![npm](https://img.shields.io/npm/v/jest-component-snapshot.svg)](https://www.npmjs.com/package/jest-component-snapshot)
-[![MIT License][license-badge]][license]
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 Component snapshot testing made easy.
 
