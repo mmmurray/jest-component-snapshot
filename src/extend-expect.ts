@@ -1,5 +1,6 @@
+import { toMatchImageSnapshot as toMatchImageSnapshotBase } from 'jest-image-snapshot'
 import { toMatchSnapshot } from 'jest-snapshot'
-import { a11ySnapshot, domSnapshot } from '.'
+import { a11ySnapshot, domSnapshot, imageSnapshot } from '.'
 
 const extendExpect = () => {
   expect.extend({
@@ -18,6 +19,16 @@ const extendExpect = () => {
         this,
         await domSnapshot(received),
         'toMatchDomSnapshot',
+      )
+    },
+  })
+
+  expect.extend({
+    async toMatchImageSnapshot(received) {
+      return toMatchImageSnapshotBase.call(
+        this,
+        await imageSnapshot(received),
+        'toMatchImageSnapshot',
       )
     },
   })
