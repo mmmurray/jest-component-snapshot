@@ -14,7 +14,7 @@ yarn add -D jest-component-snapshot puppeteer
 
 ## Usage 🤖
 
-Update your Jest config to automatically setup and teardown Puppeteer:
+The recommended way to use this library is be adding the following to your Jest config:
 
 ```json
 {
@@ -22,6 +22,16 @@ Update your Jest config to automatically setup and teardown Puppeteer:
   "globalTeardown": "jest-component-snapshot/teardown",
   "setupFilesAfterEnv": ["jest-component-snapshot/extend-expect"]
 }
+```
+
+This config is optional - the `globalSetup` and `globalTeardown` functions ensure that the same instance of Puppeteer is shared between tests to improve performance. If you not set these options then a new instance of Puppeteer will be launched for each test.
+
+If you cannot configure `setupFilesAfterEnv` (such as in [create-react-app](https://github.com/facebook/create-react-app)), you can manually extend Jest in your test files using:
+
+```js
+import { extendExpect } from 'jest-component-snapshot'
+
+extendExpect()
 ```
 
 ### Image snapshot tests
