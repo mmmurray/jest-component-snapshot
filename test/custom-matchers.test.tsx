@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import React from 'react'
 import { extendExpect } from '../src'
 
-const failureThreshold = 0.02
+const failureThreshold = 0.0002
 
 extendExpect()
 
