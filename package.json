@@ -1,7 +1,7 @@
 {
   "name": "jest-component-snapshot",
   "version": "0.1.0",
-  "description": "Component snapshot matchers",
+  "description": "Component snapshot testing made easy.",
   "author": "Mark Murray",
   "license": "MIT",
   "repository": "git@github.com:mmmurray/jest-component-snapshot.git",
