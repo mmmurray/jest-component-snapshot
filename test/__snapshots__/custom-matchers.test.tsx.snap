@@ -4,13 +4,24 @@ exports[`can use toMatchA11ySnapshot with DOM element: toMatchA11ySnapshot 1`] =
 "role: WebArea
 children:
   -
-    role: heading
-    name: Hello
-    level: 1
+    role: banner
     children:
       -
-        role: text
+        role: heading
         name: Hello
+        level: 1
+        children:
+          -
+            role: text
+            name: Hello
+      -
+        role: heading
+        name: World
+        level: 2
+        children:
+          -
+            role: text
+            name: World
 "
 `;
 
@@ -64,7 +75,12 @@ children:
 "
 `;
 
-exports[`can use toMatchDomSnapshot with DOM element: toMatchDomSnapshot 1`] = `"<h1>Hello</h1>"`;
+exports[`can use toMatchDomSnapshot with DOM element: toMatchDomSnapshot 1`] = `
+"<header>
+  <h1>Hello</h1>
+  <h2>World</h2>
+</header>"
+`;
 
 exports[`can use toMatchDomSnapshot with HTML string: toMatchDomSnapshot 1`] = `
 "<header>
@@ -74,7 +90,7 @@ exports[`can use toMatchDomSnapshot with HTML string: toMatchDomSnapshot 1`] = `
 `;
 
 exports[`can use toMatchDomSnapshot with React element: toMatchDomSnapshot 1`] = `
-"<header>
+"<header class=\\"css-jqpq4b\\">
   <h1>Hello</h1>
   <h2>World</h2>
 </header>"
