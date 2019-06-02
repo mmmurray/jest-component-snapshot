@@ -10,7 +10,7 @@ const extendExpect = () => {
   expect.extend({
     async toMatchA11ySnapshot(received: ComponentElement) {
       return toMatchSnapshot.call(
-        this,
+        this as any,
         await a11ySnapshot(received),
         'toMatchA11ySnapshot',
       )
@@ -21,7 +21,7 @@ const extendExpect = () => {
   expect.extend({
     async toMatchDomSnapshot(received: ComponentElement) {
       return toMatchSnapshot.call(
-        this,
+        this as any,
         await domSnapshot(received),
         'toMatchDomSnapshot',
       )
@@ -32,7 +32,7 @@ const extendExpect = () => {
   expect.extend({
     async toMatchImageSnapshot(received: ComponentElement, options: any) {
       return toMatchImageSnapshotBase.call(
-        this,
+        this as any,
         await imageSnapshot(received),
         options,
       )
