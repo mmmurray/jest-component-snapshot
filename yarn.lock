@@ -913,6 +913,16 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.2.tgz#63985d3d8b02530e0869962f4da09142ee8e200e"
   integrity sha512-n/VQ4mbfr81aqkx/XmVicOLjviMuy02eenSdJY33SVA7S2J42EU0P1H0mOogfYedb3wXA0d/LVtBrgTSm04WEA==
 
+"@hot-loader/react-dom@16.8.6":
+  version "16.8.6"
+  resolved "https://registry.yarnpkg.com/@hot-loader/react-dom/-/react-dom-16.8.6.tgz#7923ba27db1563a7cc48d4e0b2879a140df461ea"
+  integrity sha512-+JHIYh33FVglJYZAUtRjfT5qZoT2mueJGNzU5weS2CVw26BgbxGKSujlJhO85BaRbg8sqNWyW1hYBILgK3ZCgA==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.13.6"
+
 "@jest/console@^24.7.1":
   version "24.7.1"
   resolved "https://registry.yarnpkg.com/@jest/console/-/console-24.7.1.tgz#32a9e42535a97aedfe037e725bd67e954b459545"
@@ -5194,10 +5204,10 @@ mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0:
   dependencies:
     minimist "0.0.8"
 
-mmm-scripts@^0.0.20:
-  version "0.0.20"
-  resolved "https://registry.yarnpkg.com/mmm-scripts/-/mmm-scripts-0.0.20.tgz#22447fc99eb730444dd11ddddc676d316b71101f"
-  integrity sha512-MUlrNgycDRWXu1gXhq3jow5rzxvIjW6FyRvN1oIF3gztHq7xQRTW7YR3HcucQwRdEdiFw2VBNU44pi1dOMUd/g==
+mmm-scripts@^0.0.21:
+  version "0.0.21"
+  resolved "https://registry.yarnpkg.com/mmm-scripts/-/mmm-scripts-0.0.21.tgz#1aa6809fe1d49e8d44e764d33c9078b930dc5407"
+  integrity sha512-UNx2DMYCTKXscaysdkuO3yVK3qCFVgvpgSBHyDAZb8Aal2G1+HAPv/RtwMuI5sBrAnuDpKzvAhUmLPDP0giWSg==
   dependencies:
     "@babel/core" "7.4.5"
     "@babel/plugin-proposal-class-properties" "7.4.4"
@@ -5205,6 +5215,7 @@ mmm-scripts@^0.0.20:
     "@babel/preset-env" "7.4.5"
     "@babel/preset-react" "7.0.0"
     "@babel/preset-typescript" "7.3.3"
+    "@hot-loader/react-dom" "16.8.6"
     "@types/jest" "24.0.13"
     "@types/node" "12.0.4"
     "@types/react" "16.8.19"
