@@ -913,6 +913,16 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.2.tgz#63985d3d8b02530e0869962f4da09142ee8e200e"
   integrity sha512-n/VQ4mbfr81aqkx/XmVicOLjviMuy02eenSdJY33SVA7S2J42EU0P1H0mOogfYedb3wXA0d/LVtBrgTSm04WEA==
 
+"@hot-loader/react-dom@16.8.6":
+  version "16.8.6"
+  resolved "https://registry.yarnpkg.com/@hot-loader/react-dom/-/react-dom-16.8.6.tgz#7923ba27db1563a7cc48d4e0b2879a140df461ea"
+  integrity sha512-+JHIYh33FVglJYZAUtRjfT5qZoT2mueJGNzU5weS2CVw26BgbxGKSujlJhO85BaRbg8sqNWyW1hYBILgK3ZCgA==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.13.6"
+
 "@jest/console@^24.7.1":
   version "24.7.1"
   resolved "https://registry.yarnpkg.com/@jest/console/-/console-24.7.1.tgz#32a9e42535a97aedfe037e725bd67e954b459545"
@@ -5194,10 +5204,10 @@ mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0:
   dependencies:
     minimist "0.0.8"
 
-mmm-scripts@^0.0.20:
-  version "0.0.20"
-  resolved "https://registry.yarnpkg.com/mmm-scripts/-/mmm-scripts-0.0.20.tgz#22447fc99eb730444dd11ddddc676d316b71101f"
-  integrity sha512-MUlrNgycDRWXu1gXhq3jow5rzxvIjW6FyRvN1oIF3gztHq7xQRTW7YR3HcucQwRdEdiFw2VBNU44pi1dOMUd/g==
+mmm-scripts@^0.0.28:
+  version "0.0.28"
+  resolved "https://registry.yarnpkg.com/mmm-scripts/-/mmm-scripts-0.0.28.tgz#8f5ff52f20eda8927aae3bed87eeb1061c94a79a"
+  integrity sha512-UC94i+fBA85Rr8Drje1OZh2tjUx1pU0XgWeg+qOyo9urGXQxImbOmVhSVisUHDYysrNXY2SR51GSy4uZJhdzpw==
   dependencies:
     "@babel/core" "7.4.5"
     "@babel/plugin-proposal-class-properties" "7.4.4"
@@ -5205,6 +5215,7 @@ mmm-scripts@^0.0.20:
     "@babel/preset-env" "7.4.5"
     "@babel/preset-react" "7.0.0"
     "@babel/preset-typescript" "7.3.3"
+    "@hot-loader/react-dom" "16.8.6"
     "@types/jest" "24.0.13"
     "@types/node" "12.0.4"
     "@types/react" "16.8.19"
@@ -5217,8 +5228,10 @@ mmm-scripts@^0.0.20:
     react-hot-loader "4.9.0"
     resolve "1.11.0"
     scripts-toolbox "0.1.1"
+    start-server-webpack-plugin "^2.2.5"
     typescript "3.5.1"
     webpack-bundle-analyzer "3.3.2"
+    webpack-node-externals "^1.7.2"
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -6928,6 +6941,11 @@ stack-utils@^1.0.1:
   resolved "https://registry.yarnpkg.com/stack-utils/-/stack-utils-1.0.2.tgz#33eba3897788558bebfc2db059dc158ec36cebb8"
   integrity sha512-MTX+MeG5U994cazkjd/9KNAapsHnibjMLnfXodlkXw76JEea0UiNzrqidzo1emMwk7w5Qhc9jd4Bn9TBb1MFwA==
 
+start-server-webpack-plugin@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/start-server-webpack-plugin/-/start-server-webpack-plugin-2.2.5.tgz#4a2838759b0f36acd11b0b2f5f196f289ae29d31"
+  integrity sha512-DRCkciwCJoCFZ+wt3wWMkR1M2mpVhJbUKFXqhK3FWyIUKYb42NnocH5sMwqgo+nPNHupqNwK/v8lgfBbr2NKdg==
+
 static-extend@^0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/static-extend/-/static-extend-0.1.2.tgz#60809c39cbff55337226fd5e0b520f341f1fb5c6"
@@ -7678,6 +7696,11 @@ webpack-log@^2.0.0:
   dependencies:
     ansi-colors "^3.0.0"
     uuid "^3.3.2"
+
+webpack-node-externals@^1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/webpack-node-externals/-/webpack-node-externals-1.7.2.tgz#6e1ee79ac67c070402ba700ef033a9b8d52ac4e3"
+  integrity sha512-ajerHZ+BJKeCLviLUUmnyd5B4RavLF76uv3cs6KNuO8W+HuQaEs0y0L7o40NQxdPy5w0pcv8Ew7yPUAQG0UdCg==
 
 webpack-sources@^1.1.0, webpack-sources@^1.3.0:
   version "1.3.0"

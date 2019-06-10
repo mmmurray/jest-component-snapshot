@@ -38,7 +38,7 @@
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
     "@types/yamljs": "^0.2.30",
-    "mmm-scripts": "^0.0.20",
+    "mmm-scripts": "^0.0.28",
     "prettier": "^1.17.1",
     "puppeteer": "^1.17.0",
     "react": "^16.8.6",
