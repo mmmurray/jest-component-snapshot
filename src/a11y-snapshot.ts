@@ -18,14 +18,12 @@ const flattenContainers = (nodes: AXNode[]) =>
   }, [])
 
 const removeEmpty = ({ children = [], ...node }: AXNode): AXNode => {
-  const newNode = Object.keys(node).reduce(
-    (acc, key) => {
-      const value = (node as any)[key]
+  const initialNode: AXNode = {} as any
+  const newNode = Object.keys(node).reduce((acc, key) => {
+    const value = (node as any)[key]
 
-      return value === '' ? acc : { ...acc, [key]: value }
-    },
-    {} as AXNode,
-  )
+    return value === '' ? acc : { ...acc, [key]: value }
+  }, initialNode)
 
   const flattenedChildren = flattenContainers(children)
 
