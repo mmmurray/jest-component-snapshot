@@ -40,7 +40,7 @@
   "devDependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.12",
-    "@types/fs-extra": "^7.0.0",
+    "@types/fs-extra": "^8.0.0",
     "@types/pretty": "^2.0.0",
     "@types/puppeteer": "^1.12.4",
     "@types/yamljs": "^0.2.30",
