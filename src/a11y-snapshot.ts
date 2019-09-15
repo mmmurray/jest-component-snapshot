@@ -42,7 +42,7 @@ const a11ySnapshot = async (element: ComponentElement) => {
 
   await teardown()
 
-  const { children = [], ...rootNode } = snapshot
+  const { children, ...rootNode } = snapshot
   const flattenedNode = { ...rootNode, children: flattenContainers(children) }
 
   return YAML.stringify(removeEmpty(flattenedNode), Infinity, 2)
