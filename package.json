@@ -24,6 +24,7 @@
     "jest": "mmm jest",
     "release": "mmm release",
     "test": "mmm test",
+    "test:compile": "mmm test:compile",
     "test:coverage": "mmm test:coverage",
     "test:lint": "mmm test:lint"
   },
@@ -41,6 +42,7 @@
     "@emotion/core": "^10.0.17",
     "@emotion/styled": "^10.0.17",
     "@types/fs-extra": "^8.0.0",
+    "@types/jest-image-snapshot": "^2.8.0",
     "@types/pretty": "^2.0.0",
     "@types/puppeteer": "^1.19.1",
     "@types/yamljs": "^0.2.30",
