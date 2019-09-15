@@ -14,10 +14,10 @@ const flattenContainers = (nodes: AXNode[]): AXNode[] =>
       return [...acc, ...flattenContainers(children)]
     }
 
-    return [...acc, node]
+    return [...acc, { ...node, children: flattenContainers(children) }]
   }, [])
 
-const removeEmpty = ({ children = [], ...node }: AXNode): AXNode => {
+const removeEmpty = ({ children, ...node }: AXNode): AXNode => {
   const initialNode: AXNode = {} as any
   const newNode = Object.keys(node).reduce((acc, key) => {
     const value = (node as any)[key]

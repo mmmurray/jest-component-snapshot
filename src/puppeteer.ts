@@ -8,9 +8,7 @@ const loadPage = async () => {
       })
     : puppeteer.launch({
         executablePath: process.env.CHROME_EXECUTABLE_PATH,
-        args: (process.env.CHROME_EXECUTABLE_PATH || '')
-          .split(' ')
-          .filter(Boolean),
+        args: (process.env.CHROME_ARGS || '').split(' ').filter(Boolean),
       }))
 
   const page = await browser.newPage()

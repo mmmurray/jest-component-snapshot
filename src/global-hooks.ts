@@ -3,7 +3,7 @@ import puppeteer from 'puppeteer'
 const globalSetup = async () => {
   ;(global as any).browser = await puppeteer.launch({
     executablePath: process.env.CHROME_EXECUTABLE_PATH,
-    args: (process.env.CHROME_EXECUTABLE_PATH || '').split(' ').filter(Boolean),
+    args: (process.env.CHROME_ARGS || '').split(' ').filter(Boolean),
   })
   process.env.PUPPETEER_WS_ENDPOINT = (global as any).browser.wsEndpoint()
 }
