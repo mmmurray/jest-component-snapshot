@@ -2,5 +2,6 @@
 coverage
 lib
 node_modules
+tsconfig.build.json
 tsconfig.json
 yarn-error.log

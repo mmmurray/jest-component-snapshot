@@ -1,12 +1,23 @@
-// @ts-ignore
-import { toMatchImageSnapshot as toMatchImageSnapshotBase } from 'jest-image-snapshot'
-// @ts-ignore
+import {
+  MatchImageSnapshotOptions,
+  toMatchImageSnapshot as toMatchImageSnapshotBase,
+} from 'jest-image-snapshot'
 import { toMatchSnapshot } from 'jest-snapshot'
 import { a11ySnapshot, domSnapshot, imageSnapshot } from '.'
 import ComponentElement from './types/component-element'
 
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace jest {
+    interface Matchers<R> {
+      toMatchA11ySnapshot(): R
+      toMatchDomSnapshot(): R
+      toMatchImageSnapshot(options: MatchImageSnapshotOptions): R
+    }
+  }
+}
+
 const extendExpect = () => {
-  // @ts-ignore
   expect.extend({
     async toMatchA11ySnapshot(received: ComponentElement) {
       return toMatchSnapshot.call(
@@ -17,7 +28,6 @@ const extendExpect = () => {
     },
   })
 
-  // @ts-ignore
   expect.extend({
     async toMatchDomSnapshot(received: ComponentElement) {
       return toMatchSnapshot.call(
@@ -28,10 +38,12 @@ const extendExpect = () => {
     },
   })
 
-  // @ts-ignore
   expect.extend({
-    async toMatchImageSnapshot(received: ComponentElement, options: any) {
-      return toMatchImageSnapshotBase.call(
+    async toMatchImageSnapshot(
+      received: ComponentElement,
+      options: MatchImageSnapshotOptions,
+    ) {
+      return (toMatchImageSnapshotBase as any).call(
         this as any,
         await imageSnapshot(received),
         options,

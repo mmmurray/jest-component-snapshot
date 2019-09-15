@@ -24,6 +24,7 @@
     "jest": "mmm jest",
     "release": "mmm release",
     "test": "mmm test",
+    "test:compile": "mmm test:compile",
     "test:coverage": "mmm test:coverage",
     "test:lint": "mmm test:lint"
   },
@@ -31,23 +32,24 @@
     "puppeteer": "*"
   },
   "dependencies": {
-    "fs-extra": "^8.0.1",
-    "jest-image-snapshot": "^2.8.2",
+    "fs-extra": "^8.1.0",
+    "jest-image-snapshot": "^2.11.0",
     "pretty": "^2.0.0",
     "tmp-promise": "^2.0.1",
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
-    "@emotion/core": "^10.0.10",
-    "@emotion/styled": "^10.0.12",
-    "@types/fs-extra": "^7.0.0",
+    "@emotion/core": "^10.0.17",
+    "@emotion/styled": "^10.0.17",
+    "@types/fs-extra": "^8.0.0",
+    "@types/jest-image-snapshot": "^2.8.0",
     "@types/pretty": "^2.0.0",
-    "@types/puppeteer": "^1.12.4",
+    "@types/puppeteer": "^1.19.1",
     "@types/yamljs": "^0.2.30",
-    "mmm-scripts": "^0.4.2",
-    "puppeteer": "^1.18.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "mmm-scripts": "^0.6.4",
+    "puppeteer": "^1.20.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "commitlint": {
     "extends": [

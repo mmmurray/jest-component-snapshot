@@ -3,7 +3,7 @@ import YAML from 'yamljs'
 import { loadComponentIntoPage } from './component'
 import ComponentElement from './types/component-element'
 
-const flattenContainers = (nodes: AXNode[]) =>
+const flattenContainers = (nodes: AXNode[]): AXNode[] =>
   nodes.reduce((acc: AXNode[], node: AXNode) => {
     const { role, children = [], name, ...properties } = node
     if (
@@ -11,7 +11,7 @@ const flattenContainers = (nodes: AXNode[]) =>
       Object.keys(properties).length === 0 &&
       !name
     ) {
-      return [...acc, ...children]
+      return [...acc, ...flattenContainers(children)]
     }
 
     return [...acc, node]
@@ -25,12 +25,10 @@ const removeEmpty = ({ children = [], ...node }: AXNode): AXNode => {
     return value === '' ? acc : { ...acc, [key]: value }
   }, initialNode)
 
-  const flattenedChildren = flattenContainers(children)
-
-  return flattenedChildren.length > 0
+  return children.length > 0
     ? {
         ...newNode,
-        children: flattenedChildren.map(removeEmpty),
+        children: children.map(removeEmpty),
       }
     : newNode
 }
@@ -44,7 +42,10 @@ const a11ySnapshot = async (element: ComponentElement) => {
 
   await teardown()
 
-  return YAML.stringify(removeEmpty(snapshot), Infinity, 2)
+  const { children, ...rootNode } = snapshot
+  const flattenedNode = { ...rootNode, children: flattenContainers(children) }
+
+  return YAML.stringify(removeEmpty(flattenedNode), Infinity, 2)
 }
 
 export { a11ySnapshot }
