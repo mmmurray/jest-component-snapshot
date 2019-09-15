@@ -6,7 +6,9 @@ const loadPage = async () => {
     ? puppeteer.connect({
         browserWSEndpoint: process.env.PUPPETEER_WS_ENDPOINT,
       })
-    : puppeteer.launch())
+    : puppeteer.launch({
+        executablePath: process.env.CHROME_EXECUTABLE_PATH,
+      }))
 
   const page = await browser.newPage()
 
