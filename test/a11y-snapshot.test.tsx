@@ -6,28 +6,28 @@ test('can create a11y snapshot from HTML string', async () => {
   const element = '<section><h1>Hello</h1><a href="/world">World</a></section>'
 
   expect(await a11ySnapshot(element)).toMatchInlineSnapshot(`
-"role: WebArea
-children:
-  -
-    role: region
+    "role: WebArea
     children:
       -
-        role: heading
-        name: Hello
-        level: 1
+        role: region
         children:
           -
-            role: text
+            role: heading
             name: Hello
-      -
-        role: link
-        name: World
-        children:
+            level: 1
+            children:
+              -
+                role: text
+                name: Hello
           -
-            role: text
+            role: link
             name: World
-"
-`)
+            children:
+              -
+                role: text
+                name: World
+    "
+  `)
 })
 
 test('can create a11y snapshot from DOM element', async () => {
@@ -37,21 +37,21 @@ test('can create a11y snapshot from DOM element', async () => {
   element.appendChild(heading)
 
   expect(await a11ySnapshot(element)).toMatchInlineSnapshot(`
-"role: WebArea
-children:
-  -
-    role: banner
+    "role: WebArea
     children:
       -
-        role: heading
-        name: 'hello header'
-        level: 1
+        role: banner
         children:
           -
-            role: text
+            role: heading
             name: 'hello header'
-"
-`)
+            level: 1
+            children:
+              -
+                role: text
+                name: 'hello header'
+    "
+  `)
 })
 
 test('can create a11y snapshot from React element', async () => {
@@ -63,10 +63,54 @@ test('can create a11y snapshot from React element', async () => {
   )
 
   expect(await a11ySnapshot(element)).toMatchInlineSnapshot(`
-"role: WebArea
-children:
-  -
-    role: region
+    "role: WebArea
+    children:
+      -
+        role: region
+        children:
+          -
+            role: heading
+            name: Hello
+            level: 1
+            children:
+              -
+                role: text
+                name: Hello
+          -
+            role: link
+            name: World
+            children:
+              -
+                role: text
+                name: World
+    "
+  `)
+})
+
+test('should remove generic containers from a11y snapshot', async () => {
+  const element = (
+    <div>
+      <div />
+      <div>
+        <h1>Hello</h1>
+      </div>
+      <div>
+        <div>
+          <div>
+            <a href="/world">World</a>
+          </div>
+        </div>
+      </div>
+      <label>
+        <div>
+          <div>foo</div>
+        </div>
+      </label>
+    </div>
+  )
+
+  expect(await a11ySnapshot(element)).toMatchInlineSnapshot(`
+    "role: WebArea
     children:
       -
         role: heading
@@ -83,43 +127,14 @@ children:
           -
             role: text
             name: World
-"
-`)
-})
-
-test('should remove generic containers from a11y snapshot', async () => {
-  const element = (
-    <div>
-      <div />
-      <div>
-        <h1>Hello</h1>
-      </div>
-      <div>
-        <a href="/world">World</a>
-      </div>
-    </div>
-  )
-
-  expect(await a11ySnapshot(element)).toMatchInlineSnapshot(`
-"role: WebArea
-children:
-  -
-    role: heading
-    name: Hello
-    level: 1
-    children:
       -
-        role: text
-        name: Hello
-  -
-    role: link
-    name: World
-    children:
-      -
-        role: text
-        name: World
-"
-`)
+        role: Label
+        children:
+          -
+            role: text
+            name: foo
+    "
+  `)
 })
 
 test('a11y snapshot is affected by document styles', async () => {
@@ -140,15 +155,15 @@ test('a11y snapshot is affected by document styles', async () => {
   )
 
   expect(await a11ySnapshot(element)).toMatchInlineSnapshot(`
-"role: WebArea
-children:
-  -
-    role: link
-    name: World
+    "role: WebArea
     children:
       -
-        role: text
+        role: link
         name: World
-"
-`)
+        children:
+          -
+            role: text
+            name: World
+    "
+  `)
 })

@@ -14,7 +14,7 @@ const flattenContainers = (nodes: AXNode[]): AXNode[] =>
       return [...acc, ...flattenContainers(children)]
     }
 
-    return [...acc, node]
+    return [...acc, { ...node, children: flattenContainers(children) }]
   }, [])
 
 const removeEmpty = ({ children = [], ...node }: AXNode): AXNode => {
