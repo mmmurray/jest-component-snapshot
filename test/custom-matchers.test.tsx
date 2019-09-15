@@ -6,7 +6,7 @@ const failureThreshold = 0.0002
 
 extendExpect()
 
-const stringToDomElement = html => {
+const stringToDomElement = (html: string) => {
   const div = document.createElement('div')
   div.innerHTML = html
 
